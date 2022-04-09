@@ -37,6 +37,11 @@ public class UserDetails extends JPanel {
         DefaultTableModel defaultTableModel = (DefaultTableModel) userTable.getModel();
         defaultTableModel.setColumnIdentifiers(userTableColumn);
         int i = 0;
+        if (defaultTableModel.getRowCount() > 0) {
+            for (int j = defaultTableModel.getRowCount() - 1; j > -1; j--) {
+                defaultTableModel.removeRow(j);
+            }
+        }
         while(i < objects.length) {
             String row = objects[i].toString().trim();
             String[] rows = row.split(",");
